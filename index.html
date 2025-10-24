@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayan ❤️ Mandira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      h1,
+      h2 {
+        font-family: "Great Vibes", cursive;
+      }
+
+      /* Background animation */
+      .animated-bg {
+        background: radial-gradient(circle at top left, #ffe4e6, #fff1f2, #ffffff);
+        animation: gradientShift 12s ease-in-out infinite alternate;
+      }
+      @keyframes gradientShift {
+        0% {
+          background: radial-gradient(circle at top left, #ffe4e6, #fff1f2, #ffffff);
+        }
+        50% {
+          background: radial-gradient(circle at bottom right, #fecdd3, #ffe4e6, #ffffff);
+        }
+        100% {
+          background: radial-gradient(circle at center, #ffe4e6, #fff0f5, #ffffff);
+        }
+      }
+
+      /* Floating sparkles */
+      .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(circle, #ffd6e0, transparent);
+        border-radius: 50%;
+        animation: sparkleAnim 8s linear infinite;
+        opacity: 0.8;
+      }
+      @keyframes sparkleAnim {
+        0% {
+          transform: translateY(100vh) scale(0.6);
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) scale(1.2);
+          opacity: 0;
+        }
+      }
+
+      /* Floating hearts */
+      .heart {
+        position: absolute;
+        color: #f43f5e;
+        font-size: 18px;
+        opacity: 0.8;
+        animation: heartAnim 10s ease-in-out infinite;
+      }
+      @keyframes heartAnim {
+        0% {
+          transform: translateY(100vh) scale(0.8);
+          opacity: 0;
+        }
+        40% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-15vh) scale(1.3);
+          opacity: 0;
+        }
+      }
+
+      /* Heartbeat animation */
+      .heartbeat {
+        animation: heartbeat 1.5s ease-in-out infinite;
+        cursor: pointer;
+      }
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+      }
+
+      /* Popup */
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 240, 245, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 50;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      .popup-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        max-width: 350px;
+        animation: popUp 0.7s ease;
+      }
+      @keyframes popUp {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="animated-bg flex flex-col items-center justify-center min-h-screen text-center relative overflow-hidden">
+
+    <!-- Sparkles & hearts script -->
+    <script>
+      for (let i = 0; i < 25; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.style.left = Math.random() * 100 + "%";
+        sparkle.style.animationDuration = 6 + Math.random() * 6 + "s";
+        sparkle.style.animationDelay = Math.random() * 4 + "s";
+        document.body.appendChild(sparkle);
+      }
+
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.fontSize = 12 + Math.random() * 18 + "px";
+        heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+        heart.style.animationDelay = Math.random() * 4 + "s";
+        document.body.appendChild(heart);
+      }
+    </script>
+
+    <!-- Main card -->
+    <div class="relative z-10 bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-rose-200 p-6 max-w-md mx-4 animate-fadeIn">
+      <h1 class="text-4xl md:text-5xl text-rose-600 mb-2">Sayan & Mandira</h1>
+      <h2 class="text-xl md:text-2xl text-rose-400 mb-4">A Beautiful Beginning 💞</h2>
+      <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+        On <strong>24th April 2025</strong>, our story began — two hearts met in college and found their forever. <br />
+        Today marks the start of our beautiful journey together. 💖
+      </p>
+
+      <div class="mt-4 text-rose-500 font-semibold text-lg">
+        Congratulations to us, my love ❤️
+      </div>
+
+      <!-- Heart (clickable for popup) -->
+      <div class="mt-4 flex justify-center">
+        <div
+          class="heartbeat bg-rose-500 rounded-full w-20 h-20 flex items-center justify-center shadow-lg"
+          onclick="showPopup()"
+        >
+          <span class="text-white text-4xl">💗</span>
+        </div>
+      </div>
+
+      <p class="mt-4 text-gray-500 text-sm italic">
+        “I really like the moments I spend with you. — <br />
+        Not just this day, but every day spent with you is special to me. <br />
+        I'm forever grateful for you, Mandira.” 💫
+      </p>
+
+      <p class="mt-4 text-xs text-gray-400">
+        Made with love 💕 by <span class="text-rose-600 font-semibold">Sayan Basani</span>
+      </p>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h2 class="text-3xl text-rose-500 font-semibold mb-2 heartbeat">💖 Surprise! 💖</h2>
+        <p class="text-gray-600 mb-4">
+          Mandira, you make my every moment special. <br />
+          I'm so lucky to have you by my side. 💕 <br />
+          Here's to forever — starting from <b>24th April 2025</b>!
+        </p>
+        <button
+          onclick="hidePopup()"
+          class="mt-2 bg-rose-500 text-white rounded-full px-5 py-2 shadow-md hover:bg-rose-600 transition-all"
+        >
+          Close 🌸
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const popup = document.getElementById("popup");
+
+      function showPopup() {
+        popup.style.display = "flex";
+      }
+      function hidePopup() {
+        popup.style.display = "none";
+      }
+
+      // fade-in card
+      document.addEventListener("DOMContentLoaded", () => {
+        const card = document.querySelector(".animate-fadeIn");
+        card.style.opacity = 0;
+        card.style.transition = "opacity 1.5s ease";
+        setTimeout(() => (card.style.opacity = 1), 200);
+      });
+    </script>
+  </body>
+</html>
