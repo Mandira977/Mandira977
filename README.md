@@ -1,16 +1,30 @@
-## Hi there 👋
+## Voice AI Assistant
 
-<!--
-**Mandira977/Mandira977** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+This repository now includes two versions of a Voice AI Assistant:
 
-Here are some ideas to get you started:
+1. **Web app** (`index.html`) using browser Web Speech APIs.
+2. **Python app** (`voice_assistant.py`) using `SpeechRecognition` + `pyttsx3`.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### Run the web version
+```bash
+python3 -m http.server 8000
+```
+Open: `http://localhost:8000`
+
+### Run the Python version
+Install dependencies:
+```bash
+pip install SpeechRecognition pyttsx3 pyaudio
+```
+
+Then run:
+```bash
+python3 voice_assistant.py
+```
+
+Say commands like:
+- "hello"
+- "what time is it"
+- "open youtube"
+- "search for python projects"
+- "exit"
